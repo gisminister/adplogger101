@@ -1,0 +1,10 @@
+.pageheader {
+    height: 100px;
+    background-color: rgb(218, 181, 212);
+}
+
+.teaser {
+    width: 100%;
+    border: 1px solid gray;
+    background-color: #e4e4de;
+}

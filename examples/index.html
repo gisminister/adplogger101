@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>adplogger workshop home page</title>
+    <link rel="stylesheet" href="adplogger.css">
+  
+    <script type="module">
+    const adplogger = await import("https://assets.acdn.no/pkg/@amedia/adplogger-logger/v7/main.js");
+    adplogger.init({
+        exclude: {
+            modules: ["user","mbl","kilkaya"]
+        },
+        config: {
+            siteKey: "unknown",
+            isFrontPage: "true",
+            sourceApp: "workshop:1.0.1"
+        }
+    });
+    </script>
+</head>
+
+<body>
+    <div class="pageheader">PAGE HEADER</div>
+    <div class="navbar">
+        <a href="/">Forsiden</a>
+        <a href="/01.article.html">Article</a>
+        <a href="/02.teaser.html">Teaser</a>
+        <a href="/03.clicklabel.html">ClickLabel</a>
+    </div>
+
+
+    <div>
+        <h1>En artikkel som adplogger ikke observerer...</h1>
+        <p>
+        Vulpes fusca celer super canem pigrum salit.
+        </p>
+
+        <div class="teaser">
+            <a href="/">
+                En teaser som adplogger ikke observerer<br>
+                <img width="350" src="https://static.vecteezy.com/system/resources/thumbnails/002/098/203/small/silver-tabby-cat-sitting-on-green-background-free-photo.jpg">
+            </a>
+        </div>
+        <p>
+        Vulpes fusca celer super canem pigrum salit.
+        </p>
+
+        <div class="teaser">
+            <a href="/">
+                ANOTHER TEASER<br>
+                <img width="350" src="https://t3.ftcdn.net/jpg/02/36/99/22/360_F_236992283_sNOxCVQeFLd5pdqaKGh8DRGMZy7P4XKm.jpg">
+            </a>
+        </div>
+        <p>
+        Vulpes fusca celer super canem pigrum salit.
+        </p>
+        <div class="teaser">
+            <a href="/">
+                YET ANOTHER TEASER<br>
+                <img width="350" src="https://cdn.pixabay.com/photo/2024/02/28/07/42/european-shorthair-8601492_640.jpg">
+            </a>
+        </div>
+
+        <p>
+        Her slutter artikkelen.            
+        </p>
+
+
+    </div>
+</body>
+</html>

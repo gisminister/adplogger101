@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>adplogger workshop home page</title>
+    <link rel="stylesheet" href="adplogger.css">
+  
+    <script type="module">
+    const adplogger = await import("https://assets.acdn.no/pkg/@amedia/adplogger-logger/v7/main.js");
+    adplogger.init({
+        exclude: {
+            modules: ["user","mbl","kilkaya"]
+        },
+        config: {
+            siteKey: "unknown",
+            isFrontPage: "false",
+            sourceApp: "workshop:1.0.1"
+        }
+    });
+    </script>
+</head>
+
+<body>
+    <div class="pageheader">PAGE HEADER</div>
+    <div class="navbar">
+        <a href="/">Forsiden</a>
+        <a href="/01.article.html">Article</a>
+        <a href="/02.teaser.html">Teaser</a>
+        <a href="/03.clicklabel.html">ClickLabel</a>
+    </div>
+
+
+    <!--vi bruker itemscope for å fortelle loggeren at elementet skal logges/observeres-->
+    <div itemscope itemtype="http://schema.org/NewsArticle">
+        <!--itemtype forteller hva slags element det er, og itemprops brukes til å beskriver elementet i hht skjema-->
+        <meta itemprop="adpType" content="story">
+        <meta itemprop="identifier" content="some_cms:1234">
+        <meta itemprop="headline" content="En spennende tittel">
+        <meta itemprop="contentModel" content="free">
+        <meta itemprop="presentationMode" content="full">
+        <h1>En artikkel som adplogger observerer!</h1>
+        <p>
+            Her har jeg også lagt på markup på den første teaseren slik at den også blir fanget opp.
+        </p>
+
+        <!-- itemscope med itemtype="http://schema.org/NewsArticle" forteller loggeren at innholdet er en redaksjonell artikkel-->
+        <div class="teaser" itemscope itemtype="http://schema.org/NewsArticle">
+            <!--adpType=teaser forteller loggeren at dette er en teaser (og ikke selve artikkelen)-->
+            <meta itemprop="adpType" content="teaser"/>
+            <!--identifyer er en id som unikt identifiserer innholdet, hvis id ikke er en acpid må kildesystem indikeres med prefiks, feks norkon:1234 (ellers aner vi ikke hva det er)-->
+            <meta itemprop="identifier" content="workshop:content-101">
+            <!--url (til innholdet) er påkrevet (hvis ikke blir ikke teaseren logget)-->
+            <meta itemprop="url" content="https://www.avisnavn.no/kanonisk_url">
+            <!--contentModel forteller om innholdet teaseren leder til er plusset eller åpent-->
+            <meta itemprop="contentModel" content="free"/>
+            <!--Da er vi ferdige med det viktigste, resten er nice to have, men brukes ikke i "standard" pipelines -->
+
+            <!--headline forteller loggeren hilken tittel som ble brukt i teaseren-->
+            <meta itemprop="headline" content="Her er tittelen!">
+            <!--position forteller loggeren hilken posisjon teaseren hadde (løpenummer)-->
+            <meta itemprop="position" content="1">
+            <!--productFeature kan brukes for å indikere en særegen egenskap (productfeature) ved teaseren-->
+            <meta itemprop="productFeature" content="adploggerworkshop101">
+
+            <a href="/">
+                En teaser som adplogger observerer<br>
+                <img width="350" src="https://static.vecteezy.com/system/resources/thumbnails/002/098/203/small/silver-tabby-cat-sitting-on-green-background-free-photo.jpg">
+            </a>
+
+        </div>
+
+        <p>
+        Vulpes fusca celer super canem pigrum salit.
+        </p>
+        <div class="teaser">
+            <a href="/">
+                ANOTHER TEASER<br>
+                <img width="350" src="https://t3.ftcdn.net/jpg/02/36/99/22/360_F_236992283_sNOxCVQeFLd5pdqaKGh8DRGMZy7P4XKm.jpg">
+            </a>
+        </div>
+        <p>
+        Vulpes fusca celer super canem pigrum salit.
+        </p>
+        <div class="teaser">
+            <a href="/">
+                YET ANOTHER TEASER<br>
+                <img width="350" src="https://cdn.pixabay.com/photo/2024/02/28/07/42/european-shorthair-8601492_640.jpg">
+            </a>
+        </div>
+
+        <p>
+        Her slutter artikkelen.            
+        </p>
+    </div>
+</body>
+</html>
